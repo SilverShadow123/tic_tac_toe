@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:tic_tac_toe/socket_methods.dart';
 
@@ -31,7 +29,7 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
           const SizedBox(height: 10,),
           TextField(controller:_nameController ,decoration: InputDecoration(fillColor: Colors.black,hintText: 'Enter Your Name',border: OutlineInputBorder(borderRadius: BorderRadius.circular(20))),),
           const SizedBox(height: 10,),
-          TextButton(onPressed: ()=>_socketMethods.createRoom(_nameController.text,),style: TextButton.styleFrom(backgroundColor: Colors.indigoAccent,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(7))), child: const Text('Create',style: TextStyle(color: Colors.white,fontSize: 24,fontWeight: FontWeight.bold),))
+          TextButton(onPressed: () =>_socketMethods.createRoom(_nameController.text,),style: TextButton.styleFrom(backgroundColor: Colors.indigoAccent,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(7))), child: const Text('Create',style: TextStyle(color: Colors.white,fontSize: 24,fontWeight: FontWeight.bold),))
         ],
       ),
     );

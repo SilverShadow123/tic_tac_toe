@@ -21,7 +21,7 @@ class home_screen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(5))),
                 child: const Text(
                   'Create Room',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 26),
                 )),
             const SizedBox(
               height: 20,
@@ -34,7 +34,7 @@ class home_screen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(5))),
                 child: const Text(
                   'Join Room',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 26),
                 )),
           ],
         ),
