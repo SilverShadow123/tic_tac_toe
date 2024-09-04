@@ -12,7 +12,11 @@ class tic_tac_toe extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: {
+        home_screen.routeName:(context)=>const home_screen(),
+      },
       home: home_screen(),
+      theme: ThemeData.dark(),
     );
   }
 }
