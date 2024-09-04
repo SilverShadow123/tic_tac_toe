@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:tic_tac_toe/socket_methods.dart';
 
 class CreateRoomScreen extends StatefulWidget {
   static String routeName= '/create-room';
@@ -10,6 +13,7 @@ class CreateRoomScreen extends StatefulWidget {
 
 class _CreateRoomScreenState extends State<CreateRoomScreen> {
   final TextEditingController _nameController = TextEditingController();
+  final SocketMethods _socketMethods = SocketMethods();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +31,7 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
           const SizedBox(height: 10,),
           TextField(controller:_nameController ,decoration: InputDecoration(fillColor: Colors.black,hintText: 'Enter Your Name',border: OutlineInputBorder(borderRadius: BorderRadius.circular(20))),),
           const SizedBox(height: 10,),
-          TextButton(onPressed: (){},style: TextButton.styleFrom(backgroundColor: Colors.indigoAccent,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(7))), child: const Text('Create',style: TextStyle(color: Colors.white,fontSize: 24,fontWeight: FontWeight.bold),))
+          TextButton(onPressed: ()=>_socketMethods.createRoom(_nameController.text,),style: TextButton.styleFrom(backgroundColor: Colors.indigoAccent,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(7))), child: const Text('Create',style: TextStyle(color: Colors.white,fontSize: 24,fontWeight: FontWeight.bold),))
         ],
       ),
     );
