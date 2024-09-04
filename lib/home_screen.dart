@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:tic_tac_toe/create_room_screen.dart';
+import 'package:tic_tac_toe/join_room_screen.dart';
 
-class home_screen extends StatefulWidget {
-  static String routeName ='/main-menu';
+class home_screen extends StatelessWidget {
+  static String routeName = '/main-menu';
   const home_screen({super.key});
 
-  @override
-  State<home_screen> createState() => _home_screenState();
-}
-
-class _home_screenState extends State<home_screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,12 +13,40 @@ class _home_screenState extends State<home_screen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextButton(onPressed: (){},style: TextButton.styleFrom(backgroundColor: Colors.blue,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5))), child: Text('Create Room',style: TextStyle(color: Colors.white),)),
-            SizedBox(height: 20,),
-            TextButton(onPressed: (){},style: TextButton.styleFrom(backgroundColor: Colors.blue,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5))), child: Text('Join Room',style: TextStyle(color: Colors.white),)),
+            TextButton(
+                onPressed: () => createRoom(context),
+                style: TextButton.styleFrom(
+                    backgroundColor: Colors.blue,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5))),
+                child: const Text(
+                  'Create Room',
+                  style: TextStyle(color: Colors.white),
+                )),
+            const SizedBox(
+              height: 20,
+            ),
+            TextButton(
+                onPressed: () => joinRoom(context),
+                style: TextButton.styleFrom(
+                    backgroundColor: Colors.blue,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5))),
+                child: const Text(
+                  'Join Room',
+                  style: TextStyle(color: Colors.white),
+                )),
           ],
         ),
       ),
     );
+  }
+
+  void createRoom(BuildContext context) {
+    Navigator.pushNamed(context, CreateRoomScreen.routeName);
+  }
+
+  void joinRoom(BuildContext context) {
+    Navigator.pushNamed(context, JoinRoomScreen.routeName);
   }
 }

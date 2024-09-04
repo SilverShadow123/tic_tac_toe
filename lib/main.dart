@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tic_tac_toe/create_room_screen.dart';
 import 'home_screen.dart';
+import 'join_room_screen.dart';
 
 void main()
 {
@@ -14,8 +16,10 @@ class tic_tac_toe extends StatelessWidget {
     return MaterialApp(
       routes: {
         home_screen.routeName:(context)=>const home_screen(),
+        JoinRoomScreen.routeName:(context)=>const JoinRoomScreen(),
+        CreateRoomScreen.routeName:(context)=>const CreateRoomScreen(),
       },
-      home: home_screen(),
+      initialRoute: home_screen.routeName,
       theme: ThemeData.dark(),
     );
   }
