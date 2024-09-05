@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tic_tac_toe/socket_methods.dart';
 
 class CreateRoomScreen extends StatefulWidget {
-  static String routeName= '/create-room';
+  static String routeName = '/create-room';
   const CreateRoomScreen({super.key});
 
   @override
@@ -25,11 +25,44 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text('Create Room',style: TextStyle(color: Colors.white,fontSize: 65,fontWeight: FontWeight.bold,),),
-          const SizedBox(height: 10,),
-          TextField(controller:_nameController ,decoration: InputDecoration(fillColor: Colors.black,hintText: 'Enter Your Name',border: OutlineInputBorder(borderRadius: BorderRadius.circular(20))),),
-          const SizedBox(height: 10,),
-          TextButton(onPressed: () =>_socketMethods.createRoom(_nameController.text,),style: TextButton.styleFrom(backgroundColor: Colors.indigoAccent,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(7))), child: const Text('Create',style: TextStyle(color: Colors.white,fontSize: 24,fontWeight: FontWeight.bold),))
+          const Text(
+            'Create Room',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 65,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          TextField(
+            readOnly: false,
+            controller: _nameController,
+            decoration: InputDecoration(
+                fillColor: Colors.black,
+                hintText: 'Enter Your Name',
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20))),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          TextButton(
+              onPressed: () => _socketMethods.createRoom(
+                    _nameController.text,
+                  ),
+              style: TextButton.styleFrom(
+                  backgroundColor: Colors.indigoAccent,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(7))),
+              child: const Text(
+                'Create',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold),
+              ))
         ],
       ),
     );
